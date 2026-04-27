@@ -1,5 +1,5 @@
 const weddingConfig = {
-  date: "2026-12-12T09:00:00+07:00",
+  date: "2026-05-04T00:00:00+07:00",
   defaultGuest: "Bapak/Ibu/Saudara/i",
 };
 

@@ -129,8 +129,24 @@ function scheduleMusicPhrase() {
   state.musicTimer = window.setTimeout(scheduleMusicPhrase, notes.length * 720);
 }
 
+function getBackgroundMusic() {
+  return qs("#backgroundMusic");
+}
+
 function startMusic() {
   if (state.musicPlaying) return;
+  const audio = getBackgroundMusic();
+  if (audio) {
+    audio.currentTime = audio.currentTime || 0;
+    audio.play().catch(() => {
+      // Bypass autoplay restrictions; user interaction should still allow toggle.
+    });
+    state.musicPlaying = true;
+    qs("#musicToggle")?.classList.add("is-active");
+    qs("#musicToggle")?.setAttribute("aria-pressed", "true");
+    return;
+  }
+
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   if (!AudioContext) return;
   state.audioContext = state.audioContext || new AudioContext();
@@ -142,6 +158,10 @@ function startMusic() {
 }
 
 function stopMusic() {
+  const audio = getBackgroundMusic();
+  if (audio) {
+    audio.pause();
+  }
   state.musicPlaying = false;
   window.clearTimeout(state.musicTimer);
   qs("#musicToggle")?.classList.remove("is-active");

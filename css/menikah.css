@@ -89,6 +89,8 @@ textarea {
   inset: 0;
   z-index: 900;
   display: grid;
+  justify-items: center;
+  align-items: center;
   min-height: 100svh;
   padding: 1.2rem;
   background: #211b16;
@@ -118,6 +120,36 @@ textarea {
   background: rgba(251, 247, 239, 0.88);
   box-shadow: var(--shadow);
   backdrop-filter: blur(16px);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .invitation-cover {
+    padding: 0.85rem;
+  }
+
+  .cover-panel {
+    width: min(100%, 92vw);
+    padding: 1.1rem 1.2rem;
+    max-height: calc(100svh - 2rem);
+  }
+
+  .cover-panel h1 {
+    font-size: clamp(3.4rem, 14vw, 5.5rem);
+  }
+
+  .cover-date {
+    margin: 0.85rem 0 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .guest-card {
+    padding: 1rem;
+  }
+
+  .button-primary {
+    width: 100%;
+  }
 }
 
 .cover-panel::before,

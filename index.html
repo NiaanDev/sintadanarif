@@ -107,7 +107,7 @@
       <main>
         <section class="section section-intro" id="regular-section">
           <div class="section-inner narrow reveal">
-            <img class="bismillah" src="image/bismillah.png" alt="Bismillahirrahmaanirrahiim" />
+            <img class="bismillah" src="image/bismillah.png" alt="Bismillahirrahmaanirrahiim" loading="lazy" />
             <p class="lead">
               Assalamu'alaikum Warahmatullahi Wabarakatuh. Dengan penuh rasa syukur, kami bermaksud menyelenggarakan pernikahan putra-putri kami.
             </p>
@@ -128,7 +128,7 @@
           </div>
           <div class="event-grid">
             <article class="event-card reveal">
-              <span class="event-date">Sabtu<br /><strong>12</strong><br />Desember 2026</span>
+              <span class="event-date">Senin<br /><strong>04</strong><br />Mei 2026</span>
             </article>
             <article class="event-card reveal" data-reveal-delay="100">
               <p class="card-kicker">Akad Nikah</p>
@@ -142,7 +142,7 @@
             </article>
           </div>
           <div class="center reveal">
-            <a class="button-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan%20Sinta%20%26%20Arif&dates=20261212T020000Z/20261212T070000Z&details=Undangan%20pernikahan%20Sinta%20dan%20Arif&location=The%20Amara%20Pavilion%2C%20Jakarta" target="_blank" rel="noopener">Simpan ke Kalender</a>
+            <a class="button-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan%20Sinta%20%26%20Arif&dates=20260504T020000Z/20260504T070000Z&details=Undangan%20pernikahan%20Sinta%20dan%20Arif&location=The%20Amara%20Pavilion%2C%20Jakarta" target="_blank" rel="noopener">Simpan ke Kalender</a>
           </div>
         </section>
 
@@ -153,35 +153,16 @@
             <p>Jl. Alamat Lengkap Truko, RT 02 RW 02, Desa Surokonto Kulon, Pageruyung, Kendal, Jawa Tengah.</p>
             <a class="button-ghost dark" href="https://maps.app.goo.gl/AF1DieceHrFxwL8M7" target="_blank" rel="noopener">Buka Google Maps</a>
           </div>
-          <div class="map-frame reveal" data-reveal-delay="120">
-            <iframe title="Peta lokasi acara" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3959.998976886363!2d110.03777!3d-7.009402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMDAnMzMuOSJTIDExMMKwMDInMTYuMCJF!5e0!3m2!1sid!2sid!4v1777272993650!5m2!1sid!2sid" loading="lazy" allowfullscreen></iframe>
+          <div class="map-frame reveal" id="mapFrame" data-reveal-delay="120">
+            <div class="map-placeholder" id="mapPlaceholder">
+              <p>Peta lokasi akan dimuat saat Anda mengklik tombol di bawah ini.</p>
+              <button class="button-ghost" type="button" id="loadMapButton">Muat Peta Lokasi</button>
+            </div>
+            <iframe id="locationMap" title="Peta lokasi acara" data-src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3959.998976886363!2d110.03777!3d-7.009402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMDAnMzMuOSJTIDExMMKwMDInMTYuMCJF!5e0!3m2!1sid!2sid!4v1777272993650!5m2!1sid!2sid" loading="lazy" allowfullscreen></iframe>
           </div>
         </section>
 
-        <section class="section" id="cerita">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Love Story</p>
-            <h2>Perjalanan Kami</h2>
-          </div>
-          <div class="timeline">
-            <article class="timeline-item reveal">
-              <span>2019</span>
-              <h3>Pertemuan Pertama</h3>
-              <p>Kami bertemu dalam sebuah acara kecil, lalu percakapan sederhana menjadi awal cerita panjang.</p>
-            </article>
-            <article class="timeline-item reveal">
-              <span>2022</span>
-              <h3>Menjalin Komitmen</h3>
-              <p>Perjalanan saling mengenal mengajarkan kami tentang sabar, tumbuh, dan saling mendukung.</p>
-            </article>
-            <article class="timeline-item reveal">
-              <span>2026</span>
-              <h3>Menuju Pernikahan</h3>
-              <p>Dengan restu keluarga, kami melangkah menuju kehidupan baru bersama.</p>
-            </article>
-          </div>
-        </section>
-
+       
         <section class="section section-gallery" id="galeri">
           <div class="section-heading reveal">
             <p class="eyebrow">Galeri</p>
@@ -245,7 +226,7 @@
       </main>
 
       <footer class="site-footer">
-        <img src="image/divider-leaves.png" alt="" />
+        <img src="image/divider-leaves.png" alt="" loading="lazy" />
         <p>Terima kasih atas doa dan kehadiran Anda.</p>
         <strong>Sinta & Arif</strong>
         <small>Designed by Titik Digital</small>
@@ -264,7 +245,7 @@
       </a>
     </div>
 
-    <audio id="backgroundMusic" src="audio/lagu.mp3" preload="auto" loop></audio>
+    <audio id="backgroundMusic" src="audio/lagu.mp3" preload="none" loop></audio>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="js/menikah.js"></script>
   </body>

@@ -610,6 +610,7 @@ textarea {
 }
 
 .map-frame {
+  position: relative;
   min-height: 420px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -622,6 +623,27 @@ textarea {
   height: 420px;
   border: 0;
   filter: saturate(0.82) sepia(0.08);
+}
+
+.map-placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  gap: 0.85rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: rgba(255, 253, 248, 0.92);
+}
+
+.map-placeholder p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.map-placeholder.is-hidden {
+  display: none;
 }
 
 .timeline {

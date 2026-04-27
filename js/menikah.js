@@ -61,9 +61,15 @@ function updateCountdown() {
   });
 }
 
+function isConstrainedConnection() {
+  const nav = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (!nav) return false;
+  return nav.saveData || ["slow-2g", "2g"].includes(nav.effectiveType);
+}
+
 function setupRevealAnimation() {
   const items = qsa(".reveal");
-  if (!("IntersectionObserver" in window)) {
+  if (isConstrainedConnection() || !("IntersectionObserver" in window)) {
     items.forEach((item) => item.classList.add("is-visible"));
     return;
   }
@@ -81,6 +87,20 @@ function setupRevealAnimation() {
   );
 
   items.forEach((item) => observer.observe(item));
+}
+
+function loadMap() {
+  const mapFrame = qs("#locationMap");
+  const placeholder = qs("#mapPlaceholder");
+  if (!mapFrame || mapFrame.src || !mapFrame.dataset.src) return;
+  mapFrame.src = mapFrame.dataset.src;
+  placeholder?.classList.add("is-hidden");
+}
+
+function setupMapLoader() {
+  const button = qs("#loadMapButton");
+  if (!button) return;
+  button.addEventListener("click", loadMap, { once: true });
 }
 
 function setupNavigation() {
@@ -227,6 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.setInterval(updateCountdown, 1000);
   setupRevealAnimation();
   setupNavigation();
+  setupMapLoader();
   setupMusicToggle();
   setupCopyButtons();
   qs("#openInvitation")?.addEventListener("click", openInvitation);

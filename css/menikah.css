@@ -225,6 +225,11 @@ textarea {
   font-size: 0.82rem;
 }
 
+.hero-card .card-kicker {
+  color: wheat;
+  font-weight: 700;
+}
+
 .guest-card strong {
   font-family: var(--serif);
   font-size: 1.55rem;
@@ -418,8 +423,8 @@ textarea {
   display: block;
   margin: 0.25rem 0;
   font-family: var(--serif);
-  font-size: 2.6rem;
-  line-height: 1;
+  font-size: 2rem;
+  line-height: 1.1;
 }
 
 .countdown-wrap {
